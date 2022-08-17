@@ -23,6 +23,9 @@ class _WelcomeScreenState extends State<WelcomeScreen>
     super.initState();
     controller = AnimationController(
       duration: Duration(seconds: 1),
+
+      upperBound:
+          100.0, //now we have updated the upper bound from 1 to 100 seconds
       //here this is used to refrence the type of ticker this class contains
       vsync: this,
     );
@@ -39,7 +42,7 @@ class _WelcomeScreenState extends State<WelcomeScreen>
 
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.red.withOpacity(controller.value),
+      backgroundColor: Colors.white,
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 24.0),
         child: Column(
@@ -58,7 +61,8 @@ class _WelcomeScreenState extends State<WelcomeScreen>
                   ),
                 ),
                 Text(
-                  'Flash Chat',
+                  //this is the loading animation
+                  '${controller.value.toInt()}%',
                   style: TextStyle(
                     fontSize: 45.0,
                     fontWeight: FontWeight.w900,
