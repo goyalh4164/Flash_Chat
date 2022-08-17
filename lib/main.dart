@@ -23,9 +23,9 @@ class MyApp extends StatelessWidget {
           .id, //added id in every screen so if in case wrong name is typed by mistake then we can avoid it
       routes: {
         WelcomeScreen.id: (context) => WelcomeScreen(),
-        'login_screen': (context) => LoginScreen(),
-        'registration_screen': (context) => RegistrationScreen(),
-        'chat_screen': (context) => ChatScreen(),
+        LoginScreen.id: (context) => LoginScreen(),
+        RegistrationScreen.id: (context) => RegistrationScreen(),
+        ChatScreen.id: (context) => ChatScreen(),
       },
     );
   }
