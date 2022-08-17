@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 
 class WelcomeScreen extends StatefulWidget {
   // so that we can access it without creating the object
-  static String id = 'welcome_screen';
+  //declaring it constant too so that we can not change its value by mistake
+  static const String id = 'welcome_screen';
 
   @override
   State<WelcomeScreen> createState() => _WelcomeScreenState();
