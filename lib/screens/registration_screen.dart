@@ -18,10 +18,14 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
-            Container(
-              height: 200.0,
-              child: Image.network(
-                  'https://raw.githubusercontent.com/londonappbrewery/flash-chat-flutter/master/images/logo.png'),
+            Hero(
+              //tag must be same on both the screens
+              tag: 'logo',
+              child: Container(
+                height: 200.0,
+                child: Image.network(
+                    'https://raw.githubusercontent.com/londonappbrewery/flash-chat-flutter/master/images/logo.png'),
+              ),
             ),
             SizedBox(
               height: 48.0,

@@ -25,10 +25,14 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
           children: [
             Row(
               children: [
-                Container(
-                  child: Image.network(
-                      'https://raw.githubusercontent.com/londonappbrewery/flash-chat-flutter/master/images/logo.png'),
-                  height: 60.0,
+                Hero(
+                  //tag must be same on both the screens
+                  tag: 'logo',
+                  child: Container(
+                    child: Image.network(
+                        'https://raw.githubusercontent.com/londonappbrewery/flash-chat-flutter/master/images/logo.png'),
+                    height: 60.0,
+                  ),
                 ),
                 Text(
                   'Flash Chat',
