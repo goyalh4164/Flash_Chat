@@ -12,11 +12,34 @@ class WelcomeScreen extends StatefulWidget {
   State<WelcomeScreen> createState() => _WelcomeScreenState();
 }
 
-class _WelcomeScreenState extends State<WelcomeScreen> {
+//we are using the  SingleTickerProviderStateMixin because we want to animate only the one thing
+class _WelcomeScreenState extends State<WelcomeScreen>
+    with SingleTickerProviderStateMixin {
+  late AnimationController controller;
+
   @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    controller = AnimationController(
+      duration: Duration(seconds: 1),
+      //here this is used to refrence the type of ticker this class contains
+      vsync: this,
+    );
+    //we are saying the container to move forward line 0,0.01,0.02,01,  it usually takes 60 steps
+    controller.forward();
+    //this function available below is used to detect the current value of the ticker
+    //we can use this value according to our requirements
+    controller.addListener(() {
+      //we are calling the setstate again and again untill the value is changing hence we are now rebuilting our built methods and able to see the changes
+      setState(() {});
+      print(controller.value);
+    });
+  }
+
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.red.withOpacity(controller.value),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 24.0),
         child: Column(
