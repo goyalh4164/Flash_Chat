@@ -57,12 +57,12 @@ class _WelcomeScreenState extends State<WelcomeScreen>
                   child: Container(
                     child: Image.network(
                         'https://raw.githubusercontent.com/londonappbrewery/flash-chat-flutter/master/images/logo.png'),
-                    height: 60.0,
+                    //lets play with the height of the img contained in the container
+                    height: controller.value,
                   ),
                 ),
                 Text(
-                  //this is the loading animation
-                  '${controller.value.toInt()}%',
+                  'Flash Chat',
                   style: TextStyle(
                     fontSize: 45.0,
                     fontWeight: FontWeight.w900,
