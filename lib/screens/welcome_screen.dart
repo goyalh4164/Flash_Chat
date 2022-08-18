@@ -16,6 +16,7 @@ class WelcomeScreen extends StatefulWidget {
 class _WelcomeScreenState extends State<WelcomeScreen>
     with SingleTickerProviderStateMixin {
   late AnimationController controller;
+  late Animation animation;
 
   @override
   void initState() {
@@ -24,11 +25,11 @@ class _WelcomeScreenState extends State<WelcomeScreen>
     controller = AnimationController(
       duration: Duration(seconds: 1),
 
-      upperBound:
-          100.0, //now we have updated the upper bound from 1 to 100 seconds
+      //now we have updated the upper bound from 1 to 100 seconds
       //here this is used to refrence the type of ticker this class contains
       vsync: this,
     );
+    animation = CurvedAnimation(parent: controller, curve: Curves.decelerate);
     //we are saying the container to move forward line 0,0.01,0.02,01,  it usually takes 60 steps
     controller.forward();
     //this function available below is used to detect the current value of the ticker
@@ -58,7 +59,8 @@ class _WelcomeScreenState extends State<WelcomeScreen>
                     child: Image.network(
                         'https://raw.githubusercontent.com/londonappbrewery/flash-chat-flutter/master/images/logo.png'),
                     //lets play with the height of the img contained in the container
-                    height: controller.value,
+                    //since animation can only take value from[0,1] so we can multiply it with something for example 100 to see the bigger effects
+                    height: animation.value * 100,
                   ),
                 ),
                 Text(
