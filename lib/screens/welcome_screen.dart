@@ -31,9 +31,13 @@ class _WelcomeScreenState extends State<WelcomeScreen>
     );
     animation = CurvedAnimation(parent: controller, curve: Curves.decelerate);
     //we are saying the container to move forward line 0,0.01,0.02,01,  it usually takes 60 steps
-    controller.forward();
+    // controller.forward();
+    // if you want reverse efffect then you can do controller.reverse
     //this function available below is used to detect the current value of the ticker
+    // now in this case animation size decreases from 100 to 0
+    controller.reverse();
     //we can use this value according to our requirements
+
     controller.addListener(() {
       //we are calling the setstate again and again untill the value is changing hence we are now rebuilting our built methods and able to see the changes
       setState(() {});
