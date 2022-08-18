@@ -24,25 +24,14 @@ class _WelcomeScreenState extends State<WelcomeScreen>
     super.initState();
     controller = AnimationController(
       duration: Duration(seconds: 1),
-
-      //now we have updated the upper bound from 1 to 100 seconds
-      //here this is used to refrence the type of ticker this class contains
       vsync: this,
     );
-    animation = CurvedAnimation(parent: controller, curve: Curves.decelerate);
-    //we are saying the container to move forward line 0,0.01,0.02,01,  it usually takes 60 steps
-    // controller.forward();
-    // if you want reverse efffect then you can do controller.reverse
-    //this function available below is used to detect the current value of the ticker
+    animation =
+        ColorTween(begin: Colors.red, end: Colors.blue).animate(controller);
+
     controller.forward();
     //we can use this value according to our requirements
-    animation.addStatusListener((status) {
-      if (status == AnimationStatus.completed) {
-        controller.reverse(from: 1.0);
-      } else if (status == AnimationStatus.dismissed) {
-        controller.forward();
-      }
-    });
+
     controller.addListener(() {
       //we are calling the setstate again and again untill the value is changing hence we are now rebuilting our built methods and able to see the changes
       setState(() {});
@@ -60,7 +49,7 @@ class _WelcomeScreenState extends State<WelcomeScreen>
 
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: animation.value,
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 24.0),
         child: Column(
@@ -77,7 +66,7 @@ class _WelcomeScreenState extends State<WelcomeScreen>
                         'https://raw.githubusercontent.com/londonappbrewery/flash-chat-flutter/master/images/logo.png'),
                     //lets play with the height of the img contained in the container
                     //since animation can only take value from[0,1] so we can multiply it with something for example 100 to see the bigger effects
-                    height: animation.value * 100,
+                    height: 60.0,
                   ),
                 ),
                 Text(
