@@ -34,10 +34,11 @@ class _WelcomeScreenState extends State<WelcomeScreen>
     // controller.forward();
     // if you want reverse efffect then you can do controller.reverse
     //this function available below is used to detect the current value of the ticker
-    // now in this case animation size decreases from 100 to 0
-    controller.reverse();
+    controller.forward();
     //we can use this value according to our requirements
-
+    animation.addStatusListener((status) {
+      print(status);
+    });
     controller.addListener(() {
       //we are calling the setstate again and again untill the value is changing hence we are now rebuilting our built methods and able to see the changes
       setState(() {});
