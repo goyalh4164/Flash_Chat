@@ -34,7 +34,7 @@ class _WelcomeScreenState extends State<WelcomeScreen>
     // controller.forward();
     // if you want reverse efffect then you can do controller.reverse
     //this function available below is used to detect the current value of the ticker
-    controller.reverse(from: 1.0);
+    controller.forward();
     //we can use this value according to our requirements
     animation.addStatusListener((status) {
       if (status == AnimationStatus.completed) {
@@ -48,6 +48,14 @@ class _WelcomeScreenState extends State<WelcomeScreen>
       setState(() {});
       print(controller.value);
     });
+  }
+
+  //since the cyclic animation is infinite loop and alot of resources are used so we need to dispose this animation after showing first time on the screen
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    controller.dispose();
+    super.dispose();
   }
 
   Widget build(BuildContext context) {
