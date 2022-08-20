@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "731436777882",
+    "project_id": "flashchat-6c136",
+    "storage_bucket": "flashchat-6c136.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:731436777882:android:2d809d8dec07f83f517a23",
+        "android_client_info": {
+          "package_name": "com.harshgoyal.flash_chat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "731436777882-ut0g86mpb2q4thrbcbvad197b56suvk4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDn32oc1zPpNUc0ar7MDYAssc1yJnITdDo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "731436777882-ut0g86mpb2q4thrbcbvad197b56suvk4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
