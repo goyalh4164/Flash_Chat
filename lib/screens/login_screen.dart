@@ -29,13 +29,16 @@ class _LoginScreenState extends State<LoginScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              Hero(
-                tag: 'logo',
-                child: Container(
-                  height: 200.0,
-                  // child: Image.network(
-                  //     'https://github.com/londonappbrewery/flash-chat-flutter/blob/master/images/logo.png?raw=true'),
-                  child: Image.asset('images/logo.png'),
+              //to remove overflow ui
+              Flexible(
+                child: Hero(
+                  tag: 'logo',
+                  child: Container(
+                    height: 200.0,
+                    // child: Image.network(
+                    //     'https://github.com/londonappbrewery/flash-chat-flutter/blob/master/images/logo.png?raw=true'),
+                    child: Image.asset('images/logo.png'),
+                  ),
                 ),
               ),
               SizedBox(
